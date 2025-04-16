@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- Prevención de XSS con Content Security Policy básica -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; frame-src https://www.google.com;">
+  
+  <title>Mi Castillo Favorito</title>
+  <style>
+        body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      background: #fff8fc;
+      color: #333;
+    }
+
+    header {
+      background-color: #f497e3;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      color: white;
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    nav {
+      background-color: #ffc0e0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #5a005a;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-info {
+      font-size: 1.1rem;
+      line-height: 2;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    footer {
+      background-color: #f497e3;
+      text-align: center;
+      padding: 15px;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+        * {
+  box-sizing: border-box;}
+
+body {
+  overflow-x: hidden;
+}
+iframe {
+  pointer-events: auto; /* Evita clickjacking si se aplica con visibilidad controlada */
+  background: #fff; /* Evita que iframe se vea transparente y engañe */
+}
+a {
+  color: #5a005a;
+  background-color: transparent;
+}
+
+a:focus,
+a:hover {
+  text-decoration: underline;
+  outline: 2px solid #f497e3;
+}
+[hidden] {
+  display: none !important;
+}
+:focus-visible {
+  outline: 2px dashed #f497e3;
+  outline-offset: 3px;
+}
+
+      }
+    }
+    /* (Estilos idénticos a los que ya tienes, sin cambios aquí) */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mi Castillo Favorito</h1>
+  </header>
+
+  <nav>
+    <a href="#contacto">Contacto</a>
+    <a href="#galeria">Galería</a>
+    <a href="#ubicacion">Ubicación</a>
+  </nav>
+
+  <section id="contacto">
+    <h2>Contáctanos</h2>
+    <div class="contact-info">
+      📱 WhatsApp: <a href="https://wa.me/56947892194" target="_blank" rel="noopener noreferrer">+56 9 4789 2194</a><br />
+      📧 Email: <a href="mailto:centroinfantil@micastillofavorito.cl">centroinfantil@micastillofavorito.cl</a><br />
+      📍 Dirección: Valle Nevado 838, Mirador de Los Andes<br />
+      📸 Instagram: <a href="https://instagram.com/after.micastillofavorito" target="_blank" rel="noopener noreferrer">@after.micastillofavorito</a><br />
+      👍 Facebook: <a href="https://facebook.com/micastillofavorito" target="_blank" rel="noopener noreferrer">@micastillofavorito</a>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <h2>Galería</h2>
+    <div class="gallery">
+      <img src="contacto.jpg" alt="Información de contacto" />
+      <img src="medios_pago.jpg" alt="Opciones de medios de pago disponibles" />
+      <img src="clases_particulares.jpg" alt="Imagen de clases particulares en el centro" />
+      <img src="fachada.jpg" alt="Fachada de Mi Castillo Favorito" />
+    </div>
+  </section>
+
+  <section id="ubicacion">
+    <h2>¿Dónde estamos?</h2>
+    <iframe 
+      src="https://www.google.com/maps?q=Valle+Nevado+838,+Mirador+de+Los+Andes&output=embed"
+      allowfullscreen
+      loading="lazy"
+      sandbox="allow-scripts allow-same-origin allow-popups"
+      referrerpolicy="no-referrer">
+    </iframe>
+  </section>
+
+  <footer>
+    &copy; 2025 Mi Castillo Favorito - Guardería y After School
+  </footer>
+
+  <script>
+    // Scroll suave
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const id = this.getAttribute('href').substring(1);
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+  <script>
+    // Protección básica contra inyección de scripts en el DOM
+    const sanitizeText = (str) => {
+      const temp = document.createElement("div");
+      temp.textContent = str;
+      return temp.innerHTML;
+    };
+  
+    // Prevención de manipulación de enlaces maliciosos
+    document.querySelectorAll("a").forEach(link => {
+      const href = link.getAttribute("href");
+      if (href && !href.startsWith("http") && !href.startsWith("mailto") && !href.startsWith("https://wa.me")) {
+        console.warn("Enlace posiblemente no seguro:", href);
+      }
+    });
+  
+    // Desactiva clic derecho para evitar descargas no autorizadas (opcional)
+    window.addEventListener("contextmenu", function (e) {
+      e.preventDefault();
+    });
+  
+    // Bloquea ciertas teclas que podrían revelar código (opcional para sitios públicos)
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "F12" || (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) || (e.ctrlKey && e.key === "U")) {
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
+
+
