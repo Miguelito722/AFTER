@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" type="image/png" href="Castillo.png">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; frame-src https://www.google.com;">
+    <title>Mi Castillo Favorito</title>
+    <style>
+        /* Global Styles: Applied to the Entire Page  */
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Sets the font for the entire body */
+            margin: 0;                             /* Resets default body margins */
+            background: #fff8fc;                   /* Sets a light pink background color */
+            color: #333;                           /* Sets a dark gray text color */
+        }
+
+        /* Header Styles  */
+        header {
+            background-color: #f497e3;           /* Sets a pink background for the header */
+            padding: 20px;                       /* Adds padding around the header content */
+            text-align: center;                  /* Centers the text within the header */
+        }
+
+        header h1 {
+            color: white;                       /* Sets the header text color to white */
+            margin: 0;                         /* Resets default heading margins */
+            font-size: 2.5rem;                   /* Sets a large font size for the heading (rem is a relative unit) */
+        }
+
+        /* Navigation Styles  */
+        nav {
+            background-color: #ffc0e0;           /* Sets a lighter pink background for the navigation */
+            display: flex;                      /* Uses Flexbox for layout */
+            justify-content: center;            /* Centers navigation items horizontally */
+            gap: 20px;                         /* Adds space between navigation links */
+            padding: 10px 0;                    /* Adds padding to the top and bottom of the navigation */
+        }
+
+        nav a {
+            text-decoration: none;              /* Removes underlines from links */
+            color: #5a005a;                     /* Sets a dark purple color for the links */
+            font-weight: bold;                  /* Makes the link text bold */
+        }
+
+        /* Section Styles  */
+        section {
+            padding: 30px;                       /* Adds padding around the content within sections */
+            text-align: center;                  /* Centers the text within sections */
+        }
+
+        /* Gallery Styles  */
+        .gallery {
+            display: grid;                      /* Uses CSS Grid for layout */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Creates responsive columns */
+            gap: 15px;                         /* Adds space between gallery items */
+            margin-top: 20px;                   /* Adds margin above the gallery */
+        }
+
+        .gallery img {
+            width: 100%;                       /* Makes images fill their container */
+            border-radius: 15px;                /* Rounds the corners of images */
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1); /* Adds a subtle shadow to images */
+        }
+
+        /* Contact Info Styles  */
+        .contact-info {
+            font-size: 1.1rem;                   /* Sets a slightly larger font size */
+            line-height: 2;                     /* Sets line spacing for better readability */
+        }
+
+        /* Iframe Styles  */
+        iframe {
+            width: 100%;                       /* Makes the iframe fill its container */
+            height: 300px;                      /* Sets a fixed height for the iframe */
+            border: none;                      /* Removes the default iframe border */
+            border-radius: 15px;                /* Rounds the corners of the iframe */
+            margin-top: 20px;                   /* Adds margin above the iframe */
+        }
+
+        /* Footer Styles  */
+        footer {
+            background-color: #f497e3;           /* Sets a pink background for the footer */
+            text-align: center;                  /* Centers the text within the footer */
+            padding: 15px;                       /* Adds padding to the footer */
+            color: white;                       /* Sets the footer text color to white */
+        }
+
+        /* Media Query for Responsive Design  */
+        @media (max-width: 600px) {           /* Styles to apply when the screen width is 600px or less */
+            header h1 {
+                font-size: 1.8rem;             /* Reduces the header font size on smaller screens */
+            }
+
+            /* Resets box-sizing to border-box for all elements. This helps with layout calculations,
+                especially when using padding and border. */
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                overflow-x: hidden;           /* Prevents horizontal scrolling */
+            }
+
+            iframe {
+                pointer-events: auto;       /* Ensures the iframe is interactive (important for security if visibility is toggled) */
+                background: #fff;           /* Sets a white background for the iframe (security measure) */
+            }
+
+            a {
+                color: #5a005a;             /* Sets the default link color */
+                background-color: transparent; /* Makes the link background transparent */
+            }
+
+            a:focus,
+            a:hover {
+                text-decoration: underline; /* Underlines links on hover or focus */
+                outline: 2px solid #f497e3;   /* Adds an outline for accessibility */
+            }
+
+            [hidden] {
+                display: none !important;  /* Hides elements with the 'hidden' attribute */
+            }
+
+            :focus-visible {
+                outline: 2px dashed #f497e3; /* Adds a dashed outline for elements that are focused via keyboard */
+                outline-offset: 3px;       /* Offsets the outline from the element's border */
+            }
+        }
+        /* End of Media Query  */
+    </style>
+
+    </header>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        </head>
+    <body>
+        <header style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+            <img src="Castillo.png"
+                 alt="Castillo - Slogan" style="width: 80px; height: auto;" />
+            <h1>Mi Castillo Favorito</h1>
+        </header>
+    
+        <nav>
+            <a href="#contacto">Contacto</a>
+            <a href="#galeria">Galería</a>
+            <a href="#ubicacion">Ubicación</a>
+        </nav>
+    
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <div class="contact-info">
+                📱 WhatsApp: <a href="https://wa.me/56947892194" target="_blank" rel="noopener noreferrer">+56 9 4789 2194</a><br />
+                📧 Email: <a href="mailto:centroinfantil@micastillofavorito.cl">centroinfantil@micastillofavorito.cl</a><br />
+                📍 Dirección: Valle Nevado 838, Mirador de Los Andes<br />
+                📸 Instagram: <a href="https://instagram.com/after.micastillofavorito" target="_blank" rel="noopener noreferrer">@after.micastillofavorito</a><br />
+                👍 Facebook: <a href="https://facebook.com/micastillofavorito" target="_blank" rel="noopener noreferrer">@micastillofavorito</a>
+            </div>
+        </section>
+    
+        <section>
+            <p>¡Bienvenidos a Mi Castillo Favorito! Somos una guardería y after school que ofrece un ambiente seguro y divertido para tus hijos. Nuestro equipo está comprometido con el bienestar y desarrollo de cada niño.</p>
+            <p>Ofrecemos clases particulares, actividades recreativas y un espacio donde los niños pueden aprender y jugar. ¡Contáctanos para más información!</p>
+            <p>¡Esperamos verte pronto!</p>
+        </section>
+    
+        <section id="galeria">
+            <h2>Galería</h2>
+            <div class="gallery">
+                <img src="contacto.jpg" alt="Información de contacto" />
+                <img src="clases_particulares.jpg" alt="Imagen de clases particulares en el centro" />
+                <img src="fachada.jpg" alt="Fachada de Mi Castillo Favorito" />
+            </div>
+        </section>
+
+  <section id="ubicacion">
+    <h2>¿Dónde estamos?</h2>
+    <iframe 
+      src="https://www.google.com/maps?q=Valle+Nevado+838,+Mirador+de+Los+Andes&output=embed"
+      allowfullscreen
+      loading="lazy"
+      sandbox="allow-scripts allow-same-origin allow-popups"
+      referrerpolicy="no-referrer">
+    </iframe>
+  </section>
+
+  <footer>
+    &copy; 2025 Mi Castillo Favorito - Guardería y After School
+  </footer>
+
+  <script>
+    // Scroll suave
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const id = this.getAttribute('href').substring(1);
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+  <script>
+    // Protección básica contra inyección de scripts en el DOM
+    const sanitizeText = (str) => {
+      const temp = document.createElement("div");
+      temp.textContent = str;
+      return temp.innerHTML;
+    };
+  
+    // Prevención de manipulación de enlaces maliciosos
+    document.querySelectorAll("a").forEach(link => {
+      const href = link.getAttribute("href");
+      if (href && !href.startsWith("http") && !href.startsWith("mailto") && !href.startsWith("https://wa.me")) {
+        console.warn("Enlace posiblemente no seguro:", href);
+      }
+    });
+  
+    // Desactiva clic derecho para evitar descargas no autorizadas (opcional)
+    window.addEventListener("contextmenu", function (e) {
+      e.preventDefault();
+    });
+  
+    // Bloquea ciertas teclas que podrían revelar código (opcional para sitios públicos)
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "F12" || (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) || (e.ctrlKey && e.key === "U")) {
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
+
+
